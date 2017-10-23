@@ -1,0 +1,10 @@
+mixin b-crumb(array, add_class)
+    -var add_class = add_class ? add_class:''
+    ul.b-crumb(class="#{add_class}")
+        - for (var i = 0; i < array.length; ++i) {
+        if (i < array.length-1)
+            li.b-crumb__item
+                a.b-crumb__link(href="#") #{array[i]}
+        else
+            li.b-crumb__item #{array[i]}
+        - }

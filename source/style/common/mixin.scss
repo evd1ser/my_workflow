@@ -1,0 +1,63 @@
+@mixin lg {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+
+@mixin sm {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+
+@mixin xs2 {
+  @media screen and (max-width: 575px) {
+    @content;
+  }
+}
+@mixin xs {
+  @media screen and (max-width: 543px) {
+    @content;
+  }
+}
+
+
+@mixin mfXlg {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin mfLg {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin mfMd {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mfSm {
+  @media screen and (min-width: 544px) {
+    @content;
+  }
+}
+
+@function rem($px) {
+  @return $px / 16px + 0rem;
+}
+
+@mixin transition($time: 0.3) {
+  transition: all $time + s;
+}
