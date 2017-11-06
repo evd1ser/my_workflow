@@ -1,53 +1,50 @@
-$(document).ready(function () {
+/* eslint-disable no-undef */
+requirejs.config({
+  //By default load any module IDs from js/lib
+  baseUrl: 'assets/js',
+  shim: {
+    'bootstrap': {
+      'deps': [
+        'popper',
+        'jquery'
+      ]
+    },
+    'waypoint': {
+      'deps': [
+        'jquery'
+      ]
+    },
+    'swiper': {
+      'deps': [
+        'jquery'
+      ]
+    }
+  },
+  paths: {
+    /**
+     * Libs for apps
+     */
+    'jquery': 'jquery.min',
+    'popper': 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min',
+    'bootstrap': 'bootstrap.min',
+    'waypoint': 'jquery.waypoints.min',
+    'swiper': 'swiper.min',
+
+    /**
+     * my modules
+     */
+    'animate': 'app.animate',
+    'initGallary': 'app.sliders',
+    'initSoftScroll': 'app.scroll'
+  }
 });
 
-function animatePro() {
-    var anim = $('[data-animation]');
-    anim.hiddenAn();
+require(['jquery', 'bootstrap', 'animate', 'initGallary'], function ( $ ){
+  console.log('точка входа');
+  // Twitter Bootstrap 3 carousel plugin
+  //     $("body").html('Hi RequireJS!');
+});
 
-    anim.waypoint({
-        handler: function (direction) {
-            var el = $(this.element);
-            var a_type = $(el).data('animation');
-            switch (direction) {
-                case 'up':
-                    el.hiddenAn();
-                    break;
-                case 'down':
-                    el.animateCss(a_type);
-                    break;
-            }
-        },
-        offset: function () {
-            var offset;
-            var persent = $(this.element).data('offset');
-            if (persent) {
-                var p = parseInt(persent);
-                offset = this.context.innerHeight() * p / 100;
-            } else {
-                offset = this.context.innerHeight() - this.adapter.outerHeight();
-            }
-            return offset;
-        }
-    });
-
-    $.fn.extend({
-        animateCss: function (animationName) {
-            return this.each(function () {
-                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-
-                $(this).css({visibility: "visible"});
-
-                $(this).addClass('animated ' + animationName)
-                    .one(animationEnd, function () {
-                        $(this).removeClass('animated ' + animationName);
-                    });
-            });
-        },
-        hiddenAn: function () {
-            return this.each(function () {
-                $(this).css({visibility: "hidden"});
-            });
-        }
-    });
-}
+require(['popper'], function ( p ){
+  window.Popper = p;
+});

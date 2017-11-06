@@ -1,0 +1,23 @@
+include mixin
+doctype html
+html(lang="ru")
+    include _head
+    body.body
+        include ../../svg/iconsPack.svg
+
+        include ../modules/header
+        main.main
+            block main
+        include ../modules/footer
+
+        include ../modules/modals
+        script(data-main="assets/js/app" src="assets/js/require.js" defer)
+
+        //script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js' defer)
+        //script(src='assets/js/bootstrap.min.js' defer)
+        //script(src='assets/js/swiper.min.js')
+
+        //script(src='assets/js/app.js' defer)
+
+
+

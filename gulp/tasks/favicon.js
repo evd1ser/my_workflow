@@ -9,7 +9,7 @@ module.exports = function() {
     $.gulp.task('favicon', $.gulp.series(
         $.gulp.parallel(
             'favicon-generate',
-            'jade'
+            'pug'
         ),
         'favicon-inject'
     ));

@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = [
-  './source/template/*.jade'
+  './source/template/*.pug'
 ];
