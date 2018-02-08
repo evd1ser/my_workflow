@@ -1,10 +1,18 @@
 mixin b-crumb(array, add_class)
-    -var add_class = add_class ? add_class:''
-    ul.b-crumb(class="#{add_class}")
-        - for (var i = 0; i < array.length; ++i) {
-        if (i < array.length-1)
-            li.b-crumb__item
-                a.b-crumb__link(href="#") #{array[i]}
-        else
-            li.b-crumb__item #{array[i]}
-        - }
+  -var add_class = add_class ? add_class:''
+  ul.b-crumb(class=add_class itemscope itemtype="https://schema.org/BreadcrumbList")
+    - for (var i = 0; i < array.length; ++i) {
+    if (i < array.length - 1)
+      li.b-crumb__item(itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem")
+        a.b-crumb__link(href="#" itemprop="item") <span itemprop="name">#{array[i]}</span>
+        meta(itemprop="position" content=(i + 1))
+    else
+      li.b-crumb__item(itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem") <span itemprop="name">#{array[i]}</span>
+        meta(itemprop="position" content=(i + 1))
+    -}
+
+mixin svg(name, add_class)
+  -var add_class = add_class ? add_class:''
+
+  svg.icon(class=name + ' ' + add_class )
+    use(xlink:href=PATH + "img/iconsPack.svg#" + name)

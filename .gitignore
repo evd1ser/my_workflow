@@ -37,3 +37,4 @@ build
 # Node.JS
 node_modules
 npm-debug.log
+/source/svg/symbols.html

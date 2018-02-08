@@ -4,6 +4,10 @@
 module.exports = function (){
   $.gulp.task('pug', function (){
     return $.gulp.src($.path.template)
+
+      .pipe($.gp.if($.iswatch, $.emitty.stream($.emittyChangedFile)))
+
+
       .pipe($.gp.pug({pretty: true}))
       .on('error', $.gp.notify.onError(function ( error ){
         return {

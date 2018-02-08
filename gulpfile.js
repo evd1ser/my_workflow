@@ -20,9 +20,11 @@ global.$ = {
   ftp: require('gulp-ftp'),
   gcmq: require('gulp-group-css-media-queries'),
   fs: require('fs'),
-  through2: require('through2')
+  through2: require('through2'),
+  emitty: require('emitty').setup('source/template', 'pug')
 }
 ;
+$.emitty.scan();
 
 
 $.path.task.forEach(function ( taskPath ){

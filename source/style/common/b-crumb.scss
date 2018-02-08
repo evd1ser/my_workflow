@@ -1,0 +1,65 @@
+.b-crumb {
+  padding: 0;
+  margin: 0 0 15px;
+  display: flex;
+  overflow: auto;
+  list-style: none;
+  font-size: rem(12px);
+  white-space: nowrap;
+
+  &__item {
+    padding-right: 20px;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      width: 8px;
+      right: 5px;
+      height: 8px;
+      margin-top: -4px;
+      //background-image: url('../img/right-arrow.png');
+      //background-position: center;
+      //background-repeat: no-repeat;
+      //background-size: contain;
+    }
+    &:last-of-type {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &__link {
+    @include transition();
+    display: inline-block;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: $c_dark;
+      @include transition();
+    }
+    &,
+    &:focus,
+    &:visited {
+      color: $c_dark;
+      text-decoration: none;
+    }
+    &:hover,
+    &:active {
+      color: $c_main;
+      text-decoration: none;
+
+      &::after {
+        width: 10%;
+        background: $c_main;
+      }
+    }
+  }
+}
