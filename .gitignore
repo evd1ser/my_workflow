@@ -38,3 +38,4 @@ build
 node_modules
 npm-debug.log
 /source/svg/symbols.html
+package-lock.json
