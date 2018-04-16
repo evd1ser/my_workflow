@@ -1,0 +1,172 @@
+.pagin {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  background: #fff;
+  padding: 10px 20px;
+  overflow: auto;
+  @include sm() {
+    flex-wrap: wrap;
+    padding: 10px 15px;
+  }
+  &__item {
+    padding: 0 5px;
+    margin: 5px 0;
+    &-btn {
+      @include xs2() {
+        flex: 1 1 100%;
+        text-align: center;
+        padding: 0;
+        border: 1px solid $c_light;
+        margin: 0;
+      }
+      &:first-of-type {
+        .pagin__link {
+          .icon {
+            margin-left: 0;
+          }
+        }
+      }
+      &:last-of-type {
+        .pagin__link {
+          .icon {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  &__link {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 3px;
+    &,
+    &:focus,
+    &:visited {
+      color: #000;
+      text-decoration: underline;
+    }
+    &:hover,
+    &:active,
+    &.active {
+      background: $c_main;
+      color: #fff;
+      text-decoration: none;
+      .icon {
+        fill: #fff;
+      }
+    }
+    &.disabled {
+      &,
+      &:focus,
+      &:visited,
+      &:hover,
+      &:active {
+        color: #000;
+        background-color: transparent;
+        text-decoration: none;
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+    .icon {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0;
+      @include transition();
+    }
+  }
+  &__btn {
+    @include xs2() {
+      display: block;
+    }
+    &,
+    &:focus,
+    &:visited {
+      text-decoration: none;
+    }
+    &:hover,
+    &:active {
+
+      text-decoration: none;
+    }
+  }
+}
+
+.loadmore {
+border-radius: 3px;
+  background: #fff;
+  display: block;
+  width: 100%;
+  padding: 9px 20px;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid $c_light;
+  margin-bottom: 20px;
+
+  @include sm() {
+    padding: 7px 15px;
+  }
+
+  &,
+  &:focus,
+  &:visited {
+    color: $c_second;
+    text-decoration: none;
+  }
+  &:hover,
+  &:active {
+    cursor: pointer;
+    color: $c_main;
+    background: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    span {
+      border-bottom-color: $c_main;
+    }
+  }
+  &.loading {
+    color: #fff;
+    background-size: 600px 100%;
+    background-image: linear-gradient(90deg, $c_main, $c_second, $c_main);
+
+    cursor: wait;
+    animation: moreload 2s linear infinite;
+    background-position: 0 100%;
+    span {
+      border-bottom-color: #fff;
+    }
+  }
+  &.disable {
+    background: #000;
+    &,
+    &:focus,
+    &:visited,
+    &:hover,
+    &:active {
+      color: #000;
+      background: rgba(0, 0, 0, 0.1);
+      cursor: not-allowed;
+      //pointer-events: none;
+
+      text-decoration: none;
+    }
+  }
+  span {
+    border-bottom: 1px dotted $c_second;
+    @include transition();
+  }
+}
+
+@keyframes moreload {
+  from {
+    background-position: 0 100%;
+  }
+  to {
+    background-position: 600px 100%;
+  }
+}

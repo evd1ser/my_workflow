@@ -1,0 +1,24 @@
+// bottom_pagin
+.row.mb-30#bottompagination
+  //-.col-12
+    a#loaddtn.loadmore(href="#")
+      span Показать еще
+  .col-12
+    ul.pagin
+      li.pagin__item.pagin__item-btn
+        a.pagin__link.pagin__btn(href="#")
+          +svg('duble-next-invers')
+          | назад
+      li.pagin__item
+        a.pagin__link.active(href="#") 1
+      li.pagin__item
+        a.pagin__link(href="#") 2
+      li.pagin__item
+        a.pagin__link(href="#") 3
+      li.pagin__item ...
+      li.pagin__item
+        a.pagin__link.disabled(href="#") 450
+      li.pagin__item.pagin__item-btn
+        a.pagin__link.pagin__btn(href="#") вперед
+          +svg('duble-next')
+// bottom_pagin end

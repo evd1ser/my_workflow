@@ -1,3 +1,78 @@
+$c_main: #f47e20;
+$c_second: #652d90;
+$c_bower: #fff;
+$c_light: #ebebeb;
+$c_dark: #000;
+
+// 1. Your custom variables and variable overwrites.
+//$global-emphasis-color: #fed602;
+$global-margin: 15px;
+$global-link-color: #333333;
+$global-link-hover-color: $c_main;
+
+$global-primary-background: $c_main;
+$global-success-background: #32d296;
+$global-warning-background: $c_main;
+$global-danger-background: #f0506e;
+$global-secondary-background: $c_second;
+
+$navbar-nav-item-color: #fff;
+$navbar-nav-item-hover-color: $global-primary-background;
+$subnav-pill-item-active-color: $global-link-color;
+$subnav-pill-item-padding-vertical: 0.5em;
+$subnav-pill-item-padding-horizontal: 2em;
+$subnav-pill-item-color: #fff;
+$global-small-gutter: 5px;
+$subnav-margin-horizontal: 5px;
+$modal-header-padding-vertical: 10px;
+$modal-header-padding-horizontal: 45px;
+$modal-header-background: $c_second;
+$modal-title-font-size: 1.4rem;
+$modal-body-padding-vertical: 15px;
+$modal-body-padding-horizontal: 45px;
+$button-large-font-size: 0.89rem;
+$navbar-dropdown-box-shadow: 0 5px 12px transparentize($global-secondary-background, 0.8);
+
+$button-default-background: #fff;
+$button-default-hover-background: #fff;
+$button-large-padding-horizontal: 20px;
+
+$button-darck-background: $global-link-color;
+$button-darck-color: #fff;
+$button-darck-hover-background: lighten($button-darck-background, 5%);
+$button-darck-hover-color: #fff;
+$button-darck-active-background: lighten($button-darck-background, 10%);
+$button-darck-active-color: #fff;
+$close-hover-color: $c_main;
+
+$form-height: 25px;
+// 2. Import default variables and available mixins.
+@import "../scss/variables-theme.scss";
+@import "../scss/mixins-theme.scss";
+
+@mixin hook-form() {
+  border: $form-border-width solid $form-border;
+  transition: 0.2s ease-in-out;
+  transition-property: color, background-color, border;
+  border-radius: 3px;
+}
+
+@mixin hook-modal-title() {
+  color: #fff;
+}
+
+
+
+
+
+
+
+@mixin xl {
+  @media screen and (max-width: 1439px) {
+    @content;
+  }
+}
+
 @mixin lg {
   @media screen and (max-width: 1199px) {
     @content;
@@ -10,25 +85,23 @@
   }
 }
 
-
 @mixin sm {
   @media screen and (max-width: 767px) {
     @content;
   }
 }
 
-
 @mixin xs2 {
   @media screen and (max-width: 575px) {
     @content;
   }
 }
+
 @mixin xs {
   @media screen and (max-width: 543px) {
     @content;
   }
 }
-
 
 @mixin mfXlg {
   @media screen and (min-width: 1200px) {
